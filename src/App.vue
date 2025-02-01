@@ -32,14 +32,14 @@ export default defineComponent({
 :root {
 	--primary: #4ade80;
 	--primary-alt: #22c55e;
-	--grey: #a7a7a7;
-	--dark: #002f6e;
+	--grey: #D9D9D9;
+	--dark: #212121;
 	--dark-alt: #334155;
 	--orange:#EC8013;
 	--light-orange: #F2A14E;
 	--light: #fdfdfd;
 	--dark-black: #000000;
-	--sidebar-width: 200px;
+	--Black: #0D0D0D;
 }
 
 * {
