@@ -9,7 +9,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import Sidebar from '@/components/Sidebar.vue';
+import Sidebar from '@/components/SideBar.vue';
 
 export default defineComponent({
   name: 'App',
