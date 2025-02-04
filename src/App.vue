@@ -1,20 +1,28 @@
 
 <template>
+	<!--
     <div class="app">
       <Sidebar v-if="!isLoginPage" />
       <router-view />
-    </div>
+    </div>-->
+	<div>
+		<Scanner/>
+	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import Sidebar from '@/components/Sidebar.vue';
+import ParkingStatus from './Views/ParkingStatus.vue';
+import Scanner from '@/Views/Guardias/Scanner.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     Sidebar,
+	ParkingStatus,
+	Scanner
   },
   setup() {
     const route = useRoute();
