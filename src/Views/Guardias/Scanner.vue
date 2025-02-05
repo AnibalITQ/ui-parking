@@ -1,14 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center h-screen">
-    <v-btn icon color="primary" @click="toggleScanner">
-      <v-icon>
-        <svg width="24" height="24" viewBox="0 0 459 458" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g filter="url(#filter0_d_110_1422)">
-            <rect x="4.75" width="450" height="450" rx="45" fill="#3F3F3F" shape-rendering="crispEdges"/>
-            <path d="..." fill="white"/>
-          </g>
-        </svg>
-      </v-icon>
+    <v-btn class="flex items-center gap-2" @click="toggleScanner">
+      <img src="@/assets/Camera.svg" alt="camara" class="w-20 h-20"/> 
     </v-btn>
 
 
@@ -28,6 +21,13 @@
 <script setup>
 import { ref } from "vue";
 import { QrcodeStream } from "vue3-qrcode-reader";
+import { defineEmits } from "vue";
+
+const emit = defineEmits(["closeScanner"]);
+
+const closeScanner = () => {
+  emit("closeScanner");
+}
 
 const isScanning = ref(false);
 const decodedText = ref("");

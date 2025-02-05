@@ -6,15 +6,19 @@
       <router-view />
     </div>-->
 	<div>
-		<Scanner/>
+		<router-view/>
+		<!--
+		<ParkingStatus @toggleScanner="showScanner = true"/>
+		<Scanner v-if="showScanner" @closeScanner="showScanner = false"/>
+		-->
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import Sidebar from '@/components/Sidebar.vue';
-import ParkingStatus from './Views/ParkingStatus.vue';
+import ParkingStatus from '@/Views/Guardias/ParkingStatus.vue';
 import Scanner from '@/Views/Guardias/Scanner.vue';
 
 export default defineComponent({
@@ -27,9 +31,11 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     const isLoginPage = computed(() => route.name === 'login');
+	const showScanner = ref<boolean>(false);
 
     return {
       isLoginPage,
+	  showScanner,
     };
   },
 });

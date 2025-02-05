@@ -3,7 +3,7 @@
       <div class="bg-white rounded-lg shadow-lg overflow-y-auto w-full max-w-md h-[80vh] sm:h-[70vh] min-h-[500px] mx-auto">
 
         <div class="h-[40%] w-full flex justify-center items-center pt-4">
-          <img class="h-full w-full object-contain" alt="Estacionamiento" src="../assets/ejemplo.png" />
+          <img class="h-full w-full object-contain" alt="Estacionamiento" src="@/assets/ejemplo.png" />
         </div>
   
         <div class="Items mt-auto pt-8">
@@ -41,7 +41,7 @@
         </div>
 
         <div class="qr-container flex justify-end">
-          <img src="../assets/Qr.svg" alt="Qr Code" />
+          <img src="@/assets/Qr.svg" alt="Qr Code" @click="irAQR" class="cursor-pointer"/>
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
   
   <script lang="ts">
   import { defineComponent } from "vue";
-  
+
   export default defineComponent({
     name: "ParkingStatus",
     data() {
@@ -63,6 +63,9 @@
     methods: {
       irAQR(): void {
         console.log("Redirigiendo al QR...");
+        this.$router.push({ name: 'scanner' }).catch(err => {
+        console.error("Error al redirigir:", err);
+        });
       },
     },
   });
