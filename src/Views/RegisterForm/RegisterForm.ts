@@ -17,6 +17,7 @@ interface AutoErrors {
 
 interface FormData {
   numControl: string;
+  telefono: string;
   nombre: string;
   apellidos: string;
   password: string;
@@ -26,6 +27,7 @@ interface FormData {
 
 interface FormErrors {
   numControl?: string;
+  telefono?: string;
   nombre?: string;
   apellidos?: string;
   password?: string;
@@ -40,6 +42,7 @@ export const useRegisterForm = () => {
   // Iniciamos con un auto vacío por defecto
   const form = reactive<FormData>({
     numControl: '',
+    telefono: '',
     nombre: '',
     apellidos: '',
     password: '',
@@ -51,6 +54,7 @@ export const useRegisterForm = () => {
 
   const errors = reactive<FormErrors>({
     numControl: '',
+    telefono: '',
     nombre: '',
     apellidos: '',
     password: '',
@@ -95,7 +99,18 @@ export const useRegisterForm = () => {
       carErrors[index].color = 'El color es requerido';
       isValid = false;
     }
-
+    if (currentCar.year.length !== 4) {
+      carErrors[index].year = 'El año debe tener 4 dígitos';
+      isValid = false;
+    }
+    if(isNaN(Number(currentCar.year))) {
+      carErrors[index].year = 'El año debe ser un número';
+      isValid = false;
+    }
+    if(currentCar.placas.length < 5 || currentCar.placas.length > 8) {
+      carErrors[index].placas = 'Las placas deben tener entre 5 y 8 caracteres';
+      isValid = false;
+    }
     return isValid;
   };
 
@@ -103,6 +118,7 @@ export const useRegisterForm = () => {
   const validateForm = (): boolean => {
     let isValid = true;
     errors.numControl = '';
+    errors.telefono = '';
     errors.nombre = '';
     errors.apellidos = '';
     errors.autos = '';
@@ -114,10 +130,19 @@ export const useRegisterForm = () => {
       errors.numControl = 'El número de control es requerido';
       isValid = false;
     }
+    if(!form.telefono) {
+      errors.telefono = 'El teléfono es requerido';
+      isValid = false;
+    }
+    if(form.telefono.length !== 10) {
+      errors.telefono = 'El teléfono debe tener 10 dígitos';
+      isValid = false;
+    }
     if (!form.nombre) {
       errors.nombre = 'El nombre es requerido';
       isValid = false;
     }
+    
     if (!form.apellidos) {
       errors.apellidos = 'Los apellidos son requeridos';
       isValid = false;
@@ -132,6 +157,10 @@ export const useRegisterForm = () => {
     // Password
     if (!form.password) {
       errors.password = 'La contraseña es requerida';
+      isValid = false;
+    }
+    if(form.password.length < 6) {
+      errors.password = 'La contraseña debe tener al menos 6 caracteres';
       isValid = false;
     }
     if (!form.passwordConfirm) {
