@@ -32,6 +32,28 @@
           </p>
         </div>
 
+        <!-- Campo: Numero de Telefono -->
+        <div>
+          <label
+            for="telefono"
+            class="block text-sm font-semibold text-gray-700 mb-1"
+          >
+            Número de teléfono
+          </label>
+          <input
+            id="telefono"
+            v-model="form.telefono"
+            type="text"
+            required
+            placeholder="ingresa tu número de teléfono a 10 dígitos"
+            class="w-full px-3 py-2 border-b border-gray-300 focus:border-orange-500 outline-none transition-colors"
+            :class="{ 'border-red-500': errors.telefono }"
+          />
+          <p v-if="errors.telefono" class="mt-1 text-sm text-red-500">
+            {{ errors.telefono }}
+          </p>
+        </div>
+
         <!-- Campo: Nombre -->
         <div>
           <label
@@ -143,8 +165,29 @@
               </span>
             </button>
           </div>
+
+          <!-- Campo: Apellidos -->
+          <div>
+            <label
+              for="apellidos"
+              class="block text-sm font-semibold text-gray-700 mb-1"
+            >
+              Apellidos
+            </label>
+            <input
+              id="apellidos"
+              v-model="form.apellidos"
+              type="text"
+              required
+              class="w-full px-3 py-2 border-b border-gray-300 focus:border-orange-500 outline-none transition-colors"
+              :class="{ 'border-red-500': errors.apellidos }"
+            />
+            <p v-if="errors.apellidos" class="mt-1 text-sm text-red-500">
+              {{ errors.apellidos }}
+            </p>
+          </div>
         </div>
-        
+
         <!-- Sección de autos -->
         <div>
           <label class="block text-sm font-semibold text-gray-700 mb-1">
