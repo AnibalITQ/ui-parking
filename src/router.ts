@@ -6,6 +6,7 @@ import RegisterForm from './Views/RegisterForm/RegisterForm.vue';
 import ReportsPage from './Views/ReportesPage/ReportesPage.vue';
 import EstadisticsPage from './Views/EstadisticsPage/EstadisticsPage.vue';
 import InformationPage from './Views/InformationPage/InformationPage.vue';
+import IsEntering from './Views/IsEntering/IsEntering.vue';
 import path from 'path';
 
 const routes = [
@@ -43,6 +44,11 @@ const routes = [
     path: '/Informacion',
     name: 'informacion',
     component: InformationPage,
+  },
+  {
+    path: '/IsEntering',
+    name: 'IsEntering',
+    component: IsEntering,
   },
   {
     path: '/',
