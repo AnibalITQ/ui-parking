@@ -147,7 +147,7 @@ const handleSubmit = async () => {
     console.log("Iniciando sesión con:", form);
 
     // Ejemplo de redirección después del login exitoso
-    router.push('/home')
+    router.push('/parking')
   } catch (error) {
     console.error("Error al iniciar sesión:", error);
   } finally {

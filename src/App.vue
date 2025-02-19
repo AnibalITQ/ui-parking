@@ -1,17 +1,16 @@
 
 <template>
-	<!--
     <div class="app">
       <Sidebar v-if="!isLoginPage" />
       <router-view />
-    </div>-->
+    </div>
+	<!--
 	<div>
 		<router-view/>
-		<!--
 		<ParkingStatus @toggleScanner="showScanner = true"/>
 		<Scanner v-if="showScanner" @closeScanner="showScanner = false"/>
-		-->
 	</div>
+	-->
 </template>
 
 <script lang="ts">
