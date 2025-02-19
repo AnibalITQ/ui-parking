@@ -3,6 +3,10 @@ import LoginForm from './Views/LoginForm.vue';
 import HomePage from './Views/HomePage.vue';
 import ProfilePage from './Views/ProfilePage/ProfilePage.vue';
 import RegisterForm from './Views/RegisterForm/RegisterForm.vue';
+import ReportsPage from './Views/ReportsPage/ReportsPage.vue';
+import EstadisticsPage from './Views/EstadisticsPage/EstadisticsPage.vue';
+import InformationPage from './Views/InformationPage/InformationPage.vue';
+import IsEntering from './Views/IsEntering/IsEntering.vue';
 
 const routes = [
   {
@@ -24,6 +28,31 @@ const routes = [
     path: '/register',
     name: 'register',
     component: RegisterForm,
+  },
+  {
+    path: '/Reportes',
+    name: 'reportes',
+    component: ReportsPage,
+  },
+  {
+    path: '/Estadisticas',
+    name: 'estadisticas',
+    component: EstadisticsPage,
+  },
+  {
+    path: '/Informacion',
+    name: 'informacion',
+    component: InformationPage,
+  },
+  {
+    path: '/IsEntering',
+    name: 'IsEntering',
+    component: IsEntering,
+  },
+  {
+    path: '/TurnPage',
+    name: 'TurnPage',
+    component: () => import('./Views/TurnPage/TurnPage.vue'),
   },
   {
     path: '/',
