@@ -3,10 +3,10 @@ import LoginForm from './Views/LoginForm.vue';
 import HomePage from './Views/HomePage.vue';
 import ProfilePage from './Views/ProfilePage/ProfilePage.vue';
 import RegisterForm from './Views/RegisterForm/RegisterForm.vue';
-import ReportsPage from './Views/ReportsPage/ReportsPage.vue';
+import ReportsPage from './Views/ReportesPage/ReportesPage.vue';
 import EstadisticsPage from './Views/EstadisticsPage/EstadisticsPage.vue';
 import InformationPage from './Views/InformationPage/InformationPage.vue';
-import IsEntering from './Views/IsEntering/IsEntering.vue';
+import path from 'path';
 
 const routes = [
   {
@@ -20,8 +20,8 @@ const routes = [
     component: HomePage,
   },
   {
-    path: '/profile',
-    name: 'profile',
+    path: '/Perfil',
+    name: 'Perfil',
     component: ProfilePage,
   },
   {
@@ -43,11 +43,6 @@ const routes = [
     path: '/Informacion',
     name: 'informacion',
     component: InformationPage,
-  },
-  {
-    path: '/IsEntering',
-    name: 'IsEntering',
-    component: IsEntering,
   },
   {
     path: '/TurnPage',
