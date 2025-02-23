@@ -1,7 +1,7 @@
 
 <template>
     <div class="app">
-      <Sidebar v-if="!isLoginPage" />
+      <Sidebar v-if="!isLoginPage && !isRegisterPage" />
       <router-view />
     </div>
 	<!--
@@ -16,9 +16,9 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import Sidebar from '@/components/Sidebar.vue';
 import ParkingStatus from '@/Views/Guardias/ParkingStatus.vue';
 import Scanner from '@/Views/Guardias/Scanner.vue';
+import Sidebar from '@/components/SideBar.vue';
 
 export default defineComponent({
   name: 'App',
@@ -35,6 +35,10 @@ export default defineComponent({
     return {
       isLoginPage,
 	  showScanner,
+	const isRegisterPage = computed(() => route.name === 'register');
+    return {
+      isLoginPage,
+	  isRegisterPage,
     };
   },
 });
@@ -44,13 +48,14 @@ export default defineComponent({
 :root {
 	--primary: #4ade80;
 	--primary-alt: #22c55e;
-	--grey: #64748b;
-	--dark: #002f6e;
+	--grey: #D9D9D9;
+	--dark: #212121;
 	--dark-alt: #334155;
 	--orange:#EC8013;
 	--light-orange: #F2A14E;
-	--light: #f1f5f9;
-	--sidebar-width: 200px;
+	--light: #fdfdfd;
+	--dark-black: #000000;
+	--Black: #0D0D0D;
 }
 
 * {

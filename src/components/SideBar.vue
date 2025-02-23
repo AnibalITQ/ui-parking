@@ -25,7 +25,7 @@
       <!-- Menú -->
       <div class="menu">
         <h3>Menú</h3>
-        <router-link class="button" to="/parking">
+        <router-link class="button" to="/Home">
           <span class="material-icons">home</span>
           <span class="text">Inicio</span>
         </router-link>
@@ -139,7 +139,7 @@ const ToggleMenu = () => {
       font-weight: bold;
       padding-top: 1rem;
     }
-
+    
     .menu {
       padding: 1rem;
 

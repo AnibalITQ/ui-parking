@@ -1,0 +1,174 @@
+/*Para las fuentes*/
+.audiowide-regular {
+  font-family: "Audiowide", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
+}
+.move-center {
+  text-align: center;
+}
+
+.text-value {
+  font-weight: bold; /* Si quieres que "Kega" se vea diferente */
+  color: #333; /* Ajusta el color si es necesario */
+}
+
+.profile-page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.orange-section {
+  background-color: var(--orange);
+  width: 100%;
+  height: 30%; /* 30% de la altura total */
+}
+
+.white-section {
+  background-color: var(--light);
+  width: 100%;
+  height: 70%; /* 70% de la altura total */
+  display: flex;
+  justify-content: center;
+  padding-top: 3.5rem; /* Espaciado para evitar que el círculo se sobreponga */
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+  background-color: var(--light);
+  border-radius: 50%;
+  position: absolute;
+  top: 20%; /* Posiciona el círculo justo en el borde de las secciones */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  width: 90%;
+  height: 90%;
+  background-color: var(--orange);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ItqLogo {
+  width: 85%;
+  height: auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  overflow-x: auto;
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  box-sizing: border-box; /* Mantener el tamaño sin desbordar con padding */
+  padding: 1rem; /* Espaciado interno */
+  white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+}
+
+.contenx {
+  display: absolute;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  flex-direction: column;  /* Asegura que el contenido se apile verticalmente */
+  height: 100%;            /* Asegúrate de ocupar el espacio disponible */
+}
+/* Contenedor de h3 para alinear elementos */
+h3.spaces {
+  display: flex; /* Usa flexbox para alinear el texto y el botón */
+  align-items: center; /* Alinea verticalmente al centro */
+  /*gap: 5rem; /* Espaciado entre el texto y el botón */
+}
+
+/* Estilo para el botón */
+.button {
+  display: inline-flex; /* Permite centrar contenido interno del botón */
+  align-items: center; /* Centra el ícono verticalmente */
+  justify-content: center; /* Centra el ícono horizontalmente */
+  text-decoration: none; /* Elimina el subrayado */
+  background-color: white; /* Fondo del botón */
+  color: white; /* Color del ícono */
+  border: none;
+  border-radius: 0.5rem; /* Bordes redondeados */
+  padding: 0.3rem 0.6rem; /* Tamaño interno del botón */
+  font-size: 1.5rem; /* Tamaño del ícono */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Animación suave en hover */
+}
+
+/* Hover para el botón */
+.button:hover {
+  background-color: var(--grey);
+}
+
+/* Tamaño del ícono */
+.material-icons {
+  color: var(--dark);
+  font-size: 2.5rem; /* Ajusta el tamaño del ícono */
+  vertical-align: middle;
+  transition: background-color 0.3s ease;
+}
+
+.material-icons:hover {
+  color: var(--light);
+}
+/* Estilo para el botón */
+.btnSession {
+  display: inline-flex; /* Permite centrar contenido interno del botón */
+  align-items: center; /* Centra el ícono verticalmente */
+  justify-content: center; /* Centra el ícono horizontalmente */
+  text-decoration: none; /* Elimina el subrayado */
+  background-color: white; /* Fondo del botón */
+  color: white; /* Color del ícono */
+  border: none;
+  border-radius: 0.5rem; /* Bordes redondeados */
+  padding: 0.3rem 0.6rem; /* Tamaño interno del botón */
+  font-size: 1.5rem; /* Tamaño del ícono */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Animación suave en hover */
+}
+.text {
+  color: red;
+  transition: background-color 0.3s ease;
+}
+.btnSession:hover{
+  background-color: var(--grey); /* Fondo en hover */
+  .text:hover{
+    color: var(--light);
+  }
+}
+
+/*Para telefonos*/
+@media (max-width: 768px) {
+  .circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .card {
+    padding: 0.5rem; /* Reduce el padding interno */
+    width: 95%;
+    height: 90%;
+  }
+
+  .audiowide-regular {
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+  }
+}

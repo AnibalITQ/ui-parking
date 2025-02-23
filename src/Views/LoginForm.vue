@@ -1,16 +1,16 @@
 <template>
   <div
-    class="bg-[#EC8013] flex items-center justify-center p-4 w-full h-screen relative"
+    class="bg-[#EC8013] flex flex-col items-center justify-center p-4 w-full h-screen relative"
   >
     <!-- Contenedor para el texto fuera de la caja blanca -->
+    <div class="text-3xl font-bold text-center text-[#F2A14E] mb-4">
     <h1
-      class="absolute left-1/2 transform -translate-x-1/2 text-3xl font-bold text-center text-[#F2A14E] mb-4"
-      style="top: 7.5%"
     >
       PARKING ITQ
     </h1>
+  </div>
 
-    <div class="w-full sm:w-96 bg-white rounded-3xl shadow-lg p-8 mt-[10%]">
+    <div class="w-full sm:w-96 bg-white rounded-3xl shadow-lg p-8 ">
       <h2 class="text-2xl font-semibold text-center mb-6">INICIAR SESIÓN</h2>
 
       <form @submit.prevent="handleSubmit" class="space-y-6">
@@ -86,7 +86,8 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import { useRouter } from 'vue-router';
-
+import { defineComponent } from 'vue';
+import WhiteCard from "../components/WhiteCard.vue";
 interface FormData {
   numControl: string;
   password: string;
@@ -145,7 +146,7 @@ const handleSubmit = async () => {
     // Aquí iría la lógica de autenticación
     await new Promise((resolve) => setTimeout(resolve, 1500));
     console.log("Iniciando sesión con:", form);
-
+    localStorage.setItem('authToken', 'some-auth-token');
     // Ejemplo de redirección después del login exitoso
     router.push('/parking')
   } catch (error) {
@@ -156,8 +157,11 @@ const handleSubmit = async () => {
 };
 
 const handleRegister = () => {
-  // Aquí iría la lógica de navegación al registro
-  console.log("Navegando a registro...");
+  try {
+    router.push('/register')
+  } catch (error) {
+    console.error("Error al registrar:", error);
+  }
 };
 </script>
 
