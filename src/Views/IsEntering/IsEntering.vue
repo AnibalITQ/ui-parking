@@ -68,7 +68,11 @@ button {
   border-radius: 50%;
   font-size: 24px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .deny {
   background-color: red;
   color: white;
