@@ -45,6 +45,11 @@ const routes = [
     component: InformationPage,
   },
   {
+    path: '/TurnPage',
+    name: 'TurnPage',
+    component: () => import('./Views/TurnPage/TurnPage.vue'),
+  },
+  {
     path: '/',
     redirect: () => {
       const isAuthenticated = localStorage.getItem('authToken');
