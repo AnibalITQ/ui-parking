@@ -7,8 +7,9 @@
       'bg-white rounded-3xl overflow-y-auto mx-auto',
       `mt-${marginTop}`,
       'w-[90%]',
-      'mt-[10%]',
       `p-${padding}`,
+      'shadow-lg',
+      'flex-col items-center'
     ]"
     :style="computedStyles"
   >
