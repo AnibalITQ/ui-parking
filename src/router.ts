@@ -7,8 +7,6 @@ import ReportsPage from './Views/ReportesPage/ReportesPage.vue';
 import EstadisticsPage from './Views/EstadisticsPage/EstadisticsPage.vue';
 import InformationPage from './Views/InformationPage/InformationPage.vue';
 import IsEntering from './Views/IsEntering/IsEntering.vue';
-import path from 'path';
-
 const routes = [
   {
     path: '/login',
