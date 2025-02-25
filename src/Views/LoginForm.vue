@@ -86,8 +86,6 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import { useRouter } from 'vue-router';
-import { defineComponent } from 'vue';
-import WhiteCard from "../components/WhiteCard.vue";
 interface FormData {
   numControl: string;
   password: string;

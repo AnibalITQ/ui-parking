@@ -6,8 +6,6 @@ import RegisterForm from './Views/RegisterForm/RegisterForm.vue';
 import ReportsPage from './Views/ReportesPage/ReportesPage.vue';
 import EstadisticsPage from './Views/EstadisticsPage/EstadisticsPage.vue';
 import InformationPage from './Views/InformationPage/InformationPage.vue';
-import path from 'path';
-
 const routes = [
   {
     path: '/login',
