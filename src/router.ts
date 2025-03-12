@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginForm from './Views/LoginForm.vue';
-import ParkingStatus from './Views/Guardias/ParkingStatus.vue';
 import HomePage from './Views/HomePage.vue';
 import ProfilePage from './Views/ProfilePage/ProfilePage.vue';
 import RegisterForm from './Views/RegisterForm/RegisterForm.vue';
@@ -8,6 +7,8 @@ import ReportsPage from './Views/ReportesPage/ReportesPage.vue';
 import EstadisticsPage from './Views/EstadisticsPage/EstadisticsPage.vue';
 import InformationPage from './Views/InformationPage/InformationPage.vue';
 import IsEntering from './Views/IsEntering/IsEntering.vue';
+import HomeGuardias from './Views/Guardias/HomeGuardias.vue';
+
 const routes = [
   {
     path: '/login',
@@ -15,22 +16,28 @@ const routes = [
     component: LoginForm,
   },
   {
-    path:'/parking',
-    name:'parking',
-    component: ParkingStatus,
+    path: '/guardias',
+    children: [
+      {
+        path: '', // "/guardias" carga ParkingStatus
+        name: 'homeGuardias',
+        component: HomeGuardias,
+      },
+      {
+        path: 'scanner', // "/guardias/scanner"
+        name: 'scanner',
+        component: () => import('@/Views/Guardias/Scanner.vue'),
+      },
+    ],
   },
   {
-    path:'/scanner',
-    name:'scanner',
-    component: () => import('@/Views/Guardias/Scanner.vue'),
-  },
     path: '/home',
     name: 'home',
     component: HomePage,
   },
   {
-    path: '/Perfil',
-    name: 'Perfil',
+    path: '/perfil',
+    name: 'perfil',
     component: ProfilePage,
   },
   {
@@ -39,28 +46,28 @@ const routes = [
     component: RegisterForm,
   },
   {
-    path: '/Reportes',
+    path: '/reportes',
     name: 'reportes',
     component: ReportsPage,
   },
   {
-    path: '/Estadisticas',
+    path: '/estadisticas',
     name: 'estadisticas',
     component: EstadisticsPage,
   },
   {
-    path: '/Informacion',
+    path: '/informacion',
     name: 'informacion',
     component: InformationPage,
   },
   {
-    path: '/IsEntering',
-    name: 'IsEntering',
+    path: '/isentering',
+    name: 'isentering',
     component: IsEntering,
   },
   {
-    path: '/TurnPage',
-    name: 'TurnPage',
+    path: '/turnpage',
+    name: 'turnpage',
     component: () => import('./Views/TurnPage/TurnPage.vue'),
   },
   {
@@ -69,7 +76,7 @@ const routes = [
       const isAuthenticated = localStorage.getItem('authToken');
       return isAuthenticated ? '/home' : '/login';
     },
-  }
+  },
 ];
 
 const router = createRouter({

@@ -1,48 +1,41 @@
-
 <template>
-    <div class="app">
-      <Sidebar v-if="!isLoginPage && !isRegisterPage" />
-      <router-view />
-    </div>
-	<!--
-	<div>
-		<router-view/>
-		<ParkingStatus @toggleScanner="showScanner = true"/>
-		<Scanner v-if="showScanner" @closeScanner="showScanner = false"/>
+	<div class="app">
+	  <Sidebar v-if="!isLoginPage && !isRegisterPage && !isGuardiasRoute" />
+	  <SidebarGuardias v-else-if="!isLoginPage && !isRegisterPage && isGuardiasRoute" />
+	  <router-view />
 	</div>
-	-->
-</template>
+  </template>
+  
+  <script lang="ts">
+  import { defineComponent, computed } from 'vue';
+  import { useRoute } from 'vue-router';
+  import Sidebar from '@/components/SideBar.vue';
+  import SidebarGuardias from '@/components/SideBarGuardias.vue';
+  
+  export default defineComponent({
+	name: 'App',
+	components: {
+	  SidebarGuardias,
+	  Sidebar
+	},
+	setup() {
+	  const route = useRoute();
+	  
+	  const isLoginPage = computed(() => route.name === 'login');
+	  const isRegisterPage = computed(() => route.name === 'register');
+  
+	  // Detectar si la ruta pertenece a "guardias"
+	  const isGuardiasRoute = computed(() => route.fullPath.startsWith('/guardias'));
+	    
+	  return {
+		isLoginPage,
+		isRegisterPage,
+		isGuardiasRoute, // Retornar la variable para que esté disponible en la plantilla
+	  };
+	},
+  });
+  </script>  
 
-<script lang="ts">
-import { defineComponent, computed, ref } from 'vue';
-import { useRoute } from 'vue-router';
-import ParkingStatus from '@/Views/Guardias/ParkingStatus.vue';
-import Scanner from '@/Views/Guardias/Scanner.vue';
-import Sidebar from '@/components/SideBar.vue';
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    Sidebar,
-	ParkingStatus,
-	Scanner
-  },
-  setup() {
-    const route = useRoute();
-    const isLoginPage = computed(() => route.name === 'login');
-	const showScanner = ref<boolean>(false);
-
-    return {
-      isLoginPage,
-	  showScanner,
-	const isRegisterPage = computed(() => route.name === 'register');
-    return {
-      isLoginPage,
-	  isRegisterPage,
-    };
-  },
-});
-</script>
 
 <style lang="scss">
 :root {
