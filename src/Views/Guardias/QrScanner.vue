@@ -21,7 +21,6 @@
 <script setup>
 import { ref } from "vue";
 import { QrcodeStream } from "vue3-qrcode-reader";
-import { defineEmits } from "vue";
 
 const isScanning = ref(false);
 const decodedText = ref("");
