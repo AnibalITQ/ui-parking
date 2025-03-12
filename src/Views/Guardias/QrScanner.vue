@@ -23,12 +23,6 @@ import { ref } from "vue";
 import { QrcodeStream } from "vue3-qrcode-reader";
 import { defineEmits } from "vue";
 
-const emit = defineEmits(["closeScanner"]);
-
-const closeScanner = () => {
-  emit("closeScanner");
-}
-
 const isScanning = ref(false);
 const decodedText = ref("");
 
