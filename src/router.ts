@@ -26,7 +26,7 @@ const routes = [
       {
         path: 'scanner', // "/guardias/scanner"
         name: 'scanner',
-        component: () => import('@/Views/Guardias/Scanner.vue'),
+        component: () => import('@/Views/Guardias/QrScanner.vue'),
       },
     ],
   },
