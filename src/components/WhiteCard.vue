@@ -1,15 +1,20 @@
 <template>
   <div
+    class="min-h-screen w-full bg-gray-100 flex flex-col items-center justify-center p-4"
+  >
+  <div
     :class="[
       'bg-white rounded-3xl overflow-y-auto mx-auto',
       `mt-${marginTop}`,
       'w-[90%]',
-      'mt-[10%]',
       `p-${padding}`,
+      'shadow-lg',
+      'flex-col items-center'
     ]"
     :style="computedStyles"
   >
     <slot></slot>
+  </div>
   </div>
 </template>
 
