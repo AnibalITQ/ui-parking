@@ -1,9 +1,8 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen w-full px-4 py-6 " >
+  <div class="flex flex-col items-center justify-center min-h-screen w-full px-4 py-6">
     <v-btn class="flex items-center justify-center p-2 rounded-full" @click="toggleScanner">
       <img src="@/assets/Camera.svg" alt="camara" class="w-20 h-20"/> 
     </v-btn>
-
 
     <qrcode-stream 
       v-if="isScanning"
@@ -39,11 +38,10 @@ const onDetect = (results) => {
     isScanning.value = false;
 
     if (qrContent.startsWith("http://") || qrContent.startsWith("https://")) {
-  setTimeout(() => {
-    window.location.replace(qrContent);
-  }, 1000);
-}
- else {
+      setTimeout(() => {
+        window.location.replace(qrContent);
+      }, 1000);
+    } else {
       console.warn("El código QR no contiene una URL válida.");
     }
   }
@@ -59,7 +57,3 @@ const onInit = async (promise) => {
   }
 };
 </script>
-
-<style> 
-
-</style>  
