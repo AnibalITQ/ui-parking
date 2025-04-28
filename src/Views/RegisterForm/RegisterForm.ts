@@ -71,6 +71,22 @@ export const useRegisterForm = () => {
     carErrors[form.autos.length - 1] = {};
   };
 
+  //Eliminar auto
+  const removeCar = (index: number): void => {
+    if (form.autos.length > 1) {
+      const car = form.autos[index];
+      const hasData = car.placas || car.modelo || car.year || car.color;
+  
+      if (hasData) {
+        form.autos.splice(index, 1);
+      } else {
+        carErrors[index].placas = 'Error al eliminar';
+      }
+    } else {
+      carErrors[index].placas = 'Minimo un auto para eliminar';
+    }
+  };
+
   // Validar un auto por índice
   const ValidateCar = (index: number): boolean => {
     const currentCar = form.autos[index];
@@ -210,6 +226,7 @@ export const useRegisterForm = () => {
     errors,
     carErrors,
     handleNewCar,
+    removeCar,
     ValidateCar,
     handleSubmit,
     isLoading,

@@ -167,25 +167,7 @@
           </div>
 
           <!-- Campo: Apellidos -->
-          <div>
-            <label
-              for="apellidos"
-              class="block text-sm font-semibold text-gray-700 mb-1"
-            >
-              Apellidos
-            </label>
-            <input
-              id="apellidos"
-              v-model="form.apellidos"
-              type="text"
-              required
-              class="w-full px-3 py-2 border-b border-gray-300 focus:border-orange-500 outline-none transition-colors"
-              :class="{ 'border-red-500': errors.apellidos }"
-            />
-            <p v-if="errors.apellidos" class="mt-1 text-sm text-red-500">
-              {{ errors.apellidos }}
-            </p>
-          </div>
+          
         </div>
 
         <!-- Sección de autos -->
@@ -200,9 +182,16 @@
             :key="index"
             class="mt-6 p-4 border border-gray-300 rounded-lg shadow-md bg-gray-50"
           >
-            <p class="block text-lg font-semibold text-gray-800 mb-1">
-              Auto {{ index + 1 }}
-            </p>
+            <div class="Top-card">
+              <p class="block text-lg font-semibold text-gray-800 mb-1 textAutos">
+                Auto {{ index + 1 }}
+              </p>
+              <button class="btnDelete" v-if="form.autos.length > 1" @click="removeCar(index)">
+                <span class="material-icons">
+                  delete
+                </span>
+              </button>
+            </div>
 
             <!-- Campo: Placas -->
             <div>
@@ -320,7 +309,7 @@
 import { ref } from "vue";
 import { useRegisterForm } from "./RegisterForm";
 
-const { form, errors, carErrors, handleNewCar, handleSubmit, isLoading } =
+const { form, errors, carErrors, handleNewCar, handleSubmit, isLoading, removeCar } =
   useRegisterForm();
 
 /**
@@ -340,3 +329,5 @@ const toggleShowPasswordConfirm = () => {
   showPasswordConfirm.value = !showPasswordConfirm.value;
 };
 </script>
+
+<style src="./RegisterForm.css" scoped></style>
