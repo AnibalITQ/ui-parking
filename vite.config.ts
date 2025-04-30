@@ -3,7 +3,12 @@ import vue from "@vitejs/plugin-vue";
 import { VitePWA } from "vite-plugin-pwa";
 import path from "path";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+
+  const base = mode === 'production' ? '/' : '/ui-parking/';
+
+  return{
+  base,
   plugins: [
     vue(),
     VitePWA({
@@ -55,4 +60,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+}
 });
