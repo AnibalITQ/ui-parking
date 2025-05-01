@@ -5,7 +5,7 @@ import path from 'path';
 
 export default defineConfig(() => {
   // Usamos la variable de entorno VITE_BASE_URL o establecemos un valor por defecto
-  const base = process.env.VITE_APP_BASE_URL || '/';
+  const base = '/ui-parking/';
   console.log('Base URL from environment:', process.env.VITE_APP_BASE_URL);
 
   console.log(`Base URL is set to: ${base}`);
