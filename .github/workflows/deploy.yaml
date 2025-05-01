@@ -3,10 +3,10 @@ name: Deploy Vue App to GitHub Pages (Development Environment)
 on:
   push:
     branches:
-      - develop
+      - main
   pull_request:
     branches:
-      - develop
+      - main
 
 jobs:
   build-and-deploy:
