@@ -40,8 +40,6 @@ jobs:
       - name: Build project for development
         run: npm run build
         env:
-          # Esta variable asegura que Node.js sepa que estamos en desarrollo
-          NODE_ENV: development
           VITE_APP_BASE_URL: '/ui-parking/'
 
       - name: Create .nojekyll file
